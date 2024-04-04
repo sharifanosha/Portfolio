@@ -20,10 +20,10 @@ font-style: normal;
 }
 
 :root {
-  --bg-color: #004d65;
-  --snd-bf-color: #006d8f;
+  --bg-color: #5F9EA0;
+  --snd-bg-color: #8FBC8B;
   --text-color: #ffffff;
-  --main-color: #cce8b5;
+  --main-color: #006400;
 }
 
 html{
@@ -48,6 +48,7 @@ left: 0;
 width: 100%;
 padding: 2rem 9%;
 background: var(--bg-color);
+backdrop-filter: blur(10px);
 display: flex;
 align-items: center;
 z-index: 100;
@@ -57,26 +58,36 @@ z-index: 100;
   font-size: 2.5rem;
   color: var(--text-color);
   font-weight: 700;
-  cursour: default;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.logo:hover {
+  transform: scale(1.1);
 }
 
 .navbar a {
   font-size: 1.5rem;
   color: var(--text-color);
-  margin-left: 20rem;
+  margin-left: 30rem;
   font-weight: 700;
+  transition: 0.3s ease-in-out;
+  border-bottom: 3px solid transparent;
 }
 
-.navbar a:hover,
-.navbar a.active{
+.navbar a:hover, .navbar a.active{
   color: var(--text-color);
 }
 
-#menu-icon{
-  font-size: 3.6rem;
-  color: var(--text-color);
-  display: none;  
-}
+
+
+
+
+
+
+
+
+
 
 .home {
   display: flex;
@@ -124,6 +135,27 @@ span {
   font-size: 1.6rem;
 }
 
+.btn {
+  display: inline-block;
+  padding: 1rem 2.8rem;
+  background: var(---main-color);
+  border-radius: 4rem;
+  box-shadow: 0 0 1rem var(--main-color);
+  font-size: 1.6rem;
+  color: var(--bg-color);
+  letter-spacing: .1rem;
+  font-weight: 600;
+  transition: .5s ease;
+}
+
+.btn:hover {
+  box-shadow: none;
+}
+
+
+
+
+
 
 
 
@@ -133,7 +165,7 @@ span {
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  background: var(--snd-bf-color);
+  background: var(--snd-bg-color);
 }
 
 .about-img img {
@@ -158,6 +190,24 @@ span {
   font-size: 1.6rem;
   margin: 2rem 0 3rem;
 }
+::-webkit-scrollbar{
+  width: 15px;
+}
+
+::-webkit-scrollbar-thumb{
+  background-color: var(--main-color);
+}
+
+::-webkit-scrollbar-track{
+  background-color: var(--bg-color);
+  width: 50px;
+}
+
+
+
+
+
+
 
 
 
@@ -177,12 +227,12 @@ span {
 
 .services-container .services-box {
   flex: 1 1 30rem;
-  background: var(--snd-bf-color);
+  background: var(--snd-bg-color);
   padding: 3rem 2rem 4rem;
   border-radius: 2rem;
   text-align: center;
   border: .2rem solid var(--bg-color);
-  transition: .5sease;
+  transition: .5s ease;
 }
 
 .services-container .services-box:hover{
@@ -199,78 +249,85 @@ span {
   margin: 1rem 0 3rem;
 }
 
-
-
-
-
-
-.portfolio {
-  background: var(--snd-bf-color);
+.social-icons a{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  background: transparent;
+  border: 0.2rem solid var(--main-color);
+  font-size: 2.5rem;
+  border-radius: 50%;
+  color: var(--main-color);
+  margin: 3rem 1.5rem 3rem 0;
+  transition: 0.3s ease-in-out;
 }
 
-.portfolio h2 {
-  margin-bottom: 4rem;
+.social-icons a:hover{
+  color: white;
+  transform: scale(1.3)translateY(-5px);
+  box-shadow: 0 0 25px var(--main-color);
+  background-color: var(--main-color);
 }
 
-.portfolio-container {
+
+
+
+
+
+
+
+
+
+.course {
+  background: var(--snd-bg-color);
+  color: white;
+}
+
+.course h2{
+  margin-bottom: 5rem;
+  color: white;
+}
+
+.course-container{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
   gap: 2.5rem;
 }
 
-.portfolio-container .portfolio-box{
-  position: relative;
-  border-radius: 2rem;
-  box-shadow: 0 0 1rem var(--bg-color);
-  overflow: hidden;
-  display: flex;
+.course-box {
+  background-color: #008B8B;
+  color: #cce8b5;
+  height: 250px;
+  border-radius: 3rem;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
 }
 
-.portfolio-box img {
-  width: 100%;
-  transition: .5s ease;
-  opacity: 0.7;
+.course-box:hover{
+  background: #A0522D;
+  color: var(---main-color);
+  transform: scale(1.03);
 }
 
-.portfolio-box:hover img {
-  transform: scale(1.1);
-}
-
-.portfolio-box .portfolio-layer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(rgba(0,0,0,.1), var(--main-color));
+.course-box .course-info{
   display: flex;
   flex-direction: column;
-  padding: 0 4rem;
-  transform: translateY(100%);
-  transition: .5s ease;
-}
-
-.portfolio-box:hover .portfolio-layer {
-  transform: translateY(0);
-}
-
-.portfolio-layer h5 {
-  font-size: 3rem;
-}
-
-.portfolio-layer p {
-  font-size: 1.6rem;
-  margin: .3rem 0 1rem;
-}
-
-.portfolio-layer a {
-  display: inline-flex;
+  text-align: left;
+  max-height: 200px;
   justify-content: center;
-  align-items: center;
-  width: 5rem;
-  height: 5rem;
-  background: var(--text-color);
-  border-radius: 50%;
+  align-items: baseline;
+  padding: 5em;
 }
+
+.course-info h4{
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+
+
 
